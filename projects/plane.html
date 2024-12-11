@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Plain</title>
+
+    <style>
+        img{
+            width: 300px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<img src="img/plane.png" id="plane" alt="plane">
+<script>
+    // let plane = document.getElementById('plane');
+    // let x =0;
+    // let moveToRight = true;
+    // function movePlane(){
+    //     if(moveToRight ){
+    //         plane.style.left = (x++) + 'px';
+    //     }else {
+    //         plane.style.left = (x--) + 'px';
+    //     }
+    //     if(window.innerWidth-300 <= x){
+    //         moveToRight = false;
+    //         plane.style.transform = "scale(-1,1)"
+    //         // clearInterval(timer);
+    //     }else if(x===0){
+    //         moveToRight = true;
+    //         plane.style.transform = "scale(1,1)"
+    //     }
+    // }
+    // let timer = setInterval(movePlane,30);
+
+    let plane = document.getElementById('plane');
+    let x =0;
+    let y =0;
+    let moveToRight = true;
+    function movePlane(){
+        if(moveToRight ){
+            plane.style.left = (x++) + 'px';
+            if(x>=200 && x<=300){
+                plane.style.top = (y++) + 'px';
+            }
+            if (x>=500 && x<=600) {
+                plane.style.top = (y--) + 'px';
+            }
+        }else {
+            plane.style.left = (x--) + 'px';
+        }
+        if(window.innerWidth-300 <= x){
+            moveToRight = false;
+            plane.style.transform = "scale(-1,1)"
+            // clearInterval(timer);
+        }else if(x===0){
+            moveToRight = true;
+            plane.style.transform = "scale(1,1)"
+        }
+    }
+    let timer = setInterval(movePlane,10);
+
+</script>
+</body>
+</html>
